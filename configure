@@ -44,3 +44,6 @@ free
 echo "checking disk space"
 df -h
 
+echo "environment variables"
+set
+
