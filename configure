@@ -33,7 +33,12 @@ echo "checking CPU"
 lscpu
 
 echo "checking sudo"
-sudo whoami
+if [ "${CODESHIP}" = "TRUE" ]
+then
+	echo "don't test sudo on CODESHIP"
+else
+	sudo whoami
+fi
 
 echo "checking docker"
 docker info
