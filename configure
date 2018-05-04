@@ -1,15 +1,33 @@
 #!/bin/bash
 
 echo "checking compilers"
-echo "CC: ${CC}"
-${CC} --version
+if [ -n "${CC}" ]
+then
+	echo "CC: ${CC}"
+	${CC} --version
+else
+	gcc --version
+	clang --version
+fi
 
-echo "CXX: ${CXX}"
-${CXX} --version
+if [ -n "${CXX}" ]
+then
+	echo "CXX: ${CXX}"
+	${CXX} --version
+else
+	g++ --version
+	clang++ --version
+fi
 
 echo "checking OS"
-cat /etc/debian_version
+cat /etc/issue
+if [ -f /etc/debian_version ]
+then
+		cat /etc/debian_version
+fi
+
 lsb_release -a
+uname -a
 
 echo "checking CPU"
 lscpu
@@ -25,3 +43,4 @@ free
 
 echo "checking disk space"
 df -h
+
