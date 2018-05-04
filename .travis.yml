@@ -1,8 +1,8 @@
+dist: xenial
 language: cpp
 compiler:
   - gcc
   - clang
 sudo: required
-services:
-  - docker
+os: linux
 
