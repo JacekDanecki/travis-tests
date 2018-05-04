@@ -1,0 +1,27 @@
+#!/bin/bash
+
+echo "checking compilers"
+echo "CC: ${CC}"
+${CC} --version
+
+echo "CXX: ${CXX}"
+${CXX} --version
+
+echo "checking OS"
+cat /etc/debian_version
+lsb_release -a
+
+echo "checking CPU"
+lscpu
+
+echo "checking sudo"
+sudo whoami
+
+echo "checking docker"
+docker info
+
+echo "checking memory"
+free
+
+echo "checking disk space"
+df -h
