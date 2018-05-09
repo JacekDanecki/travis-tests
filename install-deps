@@ -1,5 +1,9 @@
 #!/bin/bash
 
+cmake --version
+git --version
+patch --version
+
 apt-get install -y --allow-unauthenticated clang-4.0 cmake git patch
 if [ $? -ne 0 ]
 then
