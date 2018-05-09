@@ -1,10 +1,12 @@
 dist: xenial
-language: cpp
+language: c
 compiler:
   - gcc
   - clang
 sudo: required
 os: linux
+apt:
+    update: true
 before_install:
     - sudo ./install-deps
 
