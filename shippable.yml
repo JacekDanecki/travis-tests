@@ -1,0 +1,7 @@
+language: c
+compiler:
+  - gcc
+build:
+    ci:
+    - sudo ./install-deps
+    - ./configure
