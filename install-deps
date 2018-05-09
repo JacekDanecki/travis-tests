@@ -3,8 +3,9 @@
 cmake --version
 git --version
 patch --version
+ninja --version
 
-apt-get install -y --allow-unauthenticated clang-4.0 cmake git patch
+apt-get install -y --allow-unauthenticated clang-4.0 cmake git patch ninja-build
 if [ $? -ne 0 ]
 then
 	while fuser -u -v /var/lib/dpkg/lock 
@@ -12,6 +13,5 @@ then
 		echo wait
 		sleep 5
 	done
-	apt-get install -y --allow-unauthenticated clang-4.0 cmake git patch
+	apt-get install -y --allow-unauthenticated clang-4.0 cmake git patch ninja-build
 fi
-
