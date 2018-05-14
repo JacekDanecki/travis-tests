@@ -9,4 +9,5 @@ apt:
     update: true
 before_install:
     - sudo ./install-deps
+    - ./configure
 
