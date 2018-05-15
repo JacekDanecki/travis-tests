@@ -1,19 +1,9 @@
 dist: xenial
 language: c
 sudo: required
-apt:
-    update: true
-
-before_install:
-    - sudo ./install-deps
-
 matrix:
     include:
      - os: linux
-         compiler: gcc
-         script: ./configure
-     - os: linux
-         compiler: clang
-         script: ./configure
-
+        compiler: gcc
+        script: ./configure
 
