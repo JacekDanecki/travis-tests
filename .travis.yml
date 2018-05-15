@@ -9,15 +9,18 @@ before_install:
     - sudo ./install-deps
 
 matrix:
-    include: 
-        - env: "gcc 5.4.0"
-            compiler:
-                - gcc
-            script:
-                - ./configure
-        - env: "clang 5.0.0"
-            compiler:
-                - clang
-            script:
-                - ./configure
+    include:
+     - os: linux
+        env: CC=gcc CXX=g++
+        script: ./configure
+     - os: linux
+         env: CC=clang CXX=clang++
+         script: ./configure
+     - os: linux
+         compiler: gcc
+         script: ./configure
+     - os: linux
+         compiler: clang
+         script: ./configure
+
 
