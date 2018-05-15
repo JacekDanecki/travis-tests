@@ -1,9 +1,13 @@
 dist: xenial
 language: c
+compiler:
+   - gcc
+   - clang
 sudo: required
-matrix:
-    include:
-        - env: "test1"
-        script:
-            - ./configure
+os: linux
+apt:
+    update: true
+before_install:
+     - sudo ./install-deps
+     - ./configure
 
