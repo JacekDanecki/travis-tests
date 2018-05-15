@@ -3,7 +3,7 @@
 git --version
 
 apt-get update
-apt-get install -y --allow-unauthenticated cmake ninja-build
+apt-get install -y --allow-unauthenticated cmake ninja-build gcc-5 gcc-6
 if [ $? -ne 0 ]
 then
 	while fuser -u -v /var/lib/dpkg/lock 
@@ -11,5 +11,5 @@ then
 		echo wait
 		sleep 5
 	done
-	apt-get install -y --allow-unauthenticated cmake ninja-build
+	apt-get install -y --allow-unauthenticated cmake ninja-build gcc-5 gcc-6
 fi
