@@ -15,6 +15,7 @@ matrix:
           env: CC=gcc-6 CXX=g++-6
           addons:
             apt:
+                update: true
                 source:
                     - ubuntu-toolchain-r-test
                 packages:
@@ -25,4 +26,3 @@ matrix:
 
 script:
      - ./configure
-
