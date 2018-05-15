@@ -13,6 +13,12 @@ matrix:
         - os: linux
           compiler: gcc
           env: CC=gcc-6 CXX=g++-6
+          addons:
+            apt:
+                source:
+                    - ubuntu-toolchain-r-test
+                packages:
+                    -  gcc-6 g++-6
         - os: linux
           compiler: clang
 
