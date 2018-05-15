@@ -1,28 +1,30 @@
-dist: xenial
 language: c
+compiler:
+    - gcc
 sudo: required
-apt:
-    update: true
-before_install:
-     - sudo ./install-deps
+services:
+    - docker
+
 matrix:
     include:
         - os: linux
           compiler: gcc
-          env: CC=gcc-5 CXX=g++-5
+          env: BUILD_OS=ubuntu-16.4
+          script:
+              - ./configure
         - os: linux
           compiler: gcc
-          env: CC=gcc-6 CXX=g++-6
-          addons:
-            apt:
-                update: true
-                source:
-                    - ubuntu-toolchain-r-test
-                packages:
-                    -  gcc-6 g++-6
+          env: BUILD_OS=18.04
+          script:
+              - ./configure
         - os: linux
           compiler: clang
-          env: CC=clang CXX=clang++
+          env: BUILD_OS=ubuntu-16.04
+          script:
+              - ./configure
+        - os: linux
+          compiler: gcc
+          env: BUILD_OS=arch
+          script:
+              - ./configure
 
-script:
-     - ./configure

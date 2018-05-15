@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo "BUILD_OS=${BUILD_OS}"
+
 echo "checking compilers"
 if [ -n "${CC}" ]
 then
