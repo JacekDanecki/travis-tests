@@ -21,6 +21,7 @@ matrix:
                     -  gcc-6 g++-6
         - os: linux
           compiler: clang
+          env: CC=clang CXX=clang++
 
 script:
      - ./configure
