@@ -9,22 +9,20 @@ matrix:
     include:
         - os: linux
           compiler: gcc
-          env: BUILD_OS=ubuntu-16.4
+          env: BUILD_OS=ubuntu-16.04
           script:
-              - ./configure
+              - ./scripts/build-ubuntu-docker.sh
+              - docker images
         - os: linux
           compiler: gcc
           env: BUILD_OS=18.04
           script:
-              - ./configure
-        - os: linux
-          compiler: clang
-          env: BUILD_OS=ubuntu-16.04
-          script:
-              - ./configure
+              - ./scripts/build-ubuntu-18.4-docker.sh
+              - docker images
         - os: linux
           compiler: gcc
           env: BUILD_OS=arch
           script:
-              - ./configure
+              - ./scripts/build-arch-docker.sh
+              - docker images
 
