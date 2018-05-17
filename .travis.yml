@@ -14,6 +14,12 @@ matrix:
               - ./scripts/build-ubuntu-docker.sh
               - docker images
         - os: linux
+          compiler: clang
+          env: BUILD_OS=ubuntu-16.04
+          script:
+              - ./scripts/build-ubuntu-docker-clang.sh
+              - docker images
+        - os: linux
           compiler: gcc
           env: BUILD_OS=18.04
           script:
