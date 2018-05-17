@@ -19,12 +19,9 @@
 # ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 # OTHER DEALINGS IN THE SOFTWARE.
 
-pacman -Sy --noconfirm gcc6 cmake git make wget pkg-config fakeroot ninja sudo perl-io-string \
-	perl-test-pod autoconf automake patch
-ln -s /usr/bin/gcc-6 /usr/bin/gcc
-ln -s /usr/bin/g++-6 /usr/bin/g++
-useradd -m build -g wheel
-sed -i "s/^# %wheel ALL=(ALL) NOPASSWD: ALL/%wheel ALL=(ALL) NOPASSWD: ALL/" /etc/sudoers
-cp -a /root/*.sh /home/build
-su -l build /home/build/build-arch-dep.sh
+#git clone ../compute-runtime neo
+#git clone https://github.com/intel/compute-runtime.git neo
+git clone https://github.com/JacekDanecki/compute-runtime.git neo
+docker build -f Dockerfile-${BUILD_OS}-${COMPILER} -t neo-${BUILD_OS}-${COMPILER}:ci .
+docker images
 

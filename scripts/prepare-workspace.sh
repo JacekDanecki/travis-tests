@@ -19,8 +19,14 @@
 # ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 # OTHER DEALINGS IN THE SOFTWARE.
 
-#git clone ../compute-runtime neo
-#git clone https://github.com/intel/compute-runtime.git neo
-git clone https://github.com/JacekDanecki/compute-runtime.git neo
-docker build -f Dockerfile-ubuntu-18.04 -t neo-ubuntu-18.4:ci .
+cd /root
+git clone https://github.com/intel/gmmlib gmmlib
+git clone --depth 2 https://github.com/KhronosGroup/OpenCL-Headers khronos
+pushd khronos
+git checkout -b build e986688daf750633898dfd3994e14a9e618f2aa5
+popd
+pushd neo/scripts/igc
+./prepare.sh
+popd
+mkdir build
 
