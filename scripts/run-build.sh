@@ -21,7 +21,7 @@
 
 #git clone ../compute-runtime neo
 #git clone https://github.com/intel/compute-runtime.git neo
-git clone https://github.com/JacekDanecki/compute-runtime.git neo
-docker build -f Dockerfile-${BUILD_OS}-${COMPILER} -t neo-${BUILD_OS}-${COMPILER}:ci .
+git clone https://github.com/JacekDanecki/compute-runtime.git neo && \
+docker build -f Dockerfile-${BUILD_OS}-${COMPILER} -t neo-${BUILD_OS}-${COMPILER}:ci . && \
 docker images
 
