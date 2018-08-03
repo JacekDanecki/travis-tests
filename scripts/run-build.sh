@@ -19,9 +19,17 @@
 # ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 # OTHER DEALINGS IN THE SOFTWARE.
 
-#git clone ../compute-runtime neo
-#git clone https://github.com/intel/compute-runtime.git neo
+DOCKERFILE=Dockerfile-${BUILD_OS}-${COMPILER}
+IMAGE=neo-${BUILD_OS}-${COMPILER}:ci
+
+if [ -n "$GEN" ]
+then
+    DOCKERFILE=${DOCKERFILE}-${GEN}
+    IMAGE=neo-${BUILD_OS}-${COMPILER}-${GEN}:ci
+fi
+
+
 git clone https://github.com/JacekDanecki/compute-runtime.git neo && \
-docker build -f Dockerfile-${BUILD_OS}-${COMPILER} -t neo-${BUILD_OS}-${COMPILER}:ci . && \
+docker build -f ${DOCKERFILE} -t ${IMAGE} . && \
 docker images
 
